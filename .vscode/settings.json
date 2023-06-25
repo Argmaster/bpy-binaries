@@ -1,0 +1,22 @@
+{
+    "python.linting.ignorePatterns": [
+        "**/site-packages/**/*.py",
+        ".vscode/*.py",
+        "blender-git/*.*",
+        "blender/*.*",
+        "lib/*.*",
+        "dist/*.*"
+    ],
+    "python.analysis.ignore": [
+        "blender-git/*.*",
+        "blender/*.*",
+        "lib/*.*",
+        "dist/*.*"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "ruff.fixAll": true,
+    "editor.formatOnSave": true,
+    "cSpell.words": ["localzone", "tzlocal", "workdir"]
+}
