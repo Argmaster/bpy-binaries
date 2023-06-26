@@ -209,13 +209,20 @@ def run_command(
     required=True,
     multiple=True,
 )
-def package(blender: Version, python: list[Version]) -> None:
+@click.option(
+    "-s",
+    "--system",
+    help="System wheel tag.",
+    type=str,
+    required=True,
+)
+def package(blender: Version, python: list[Version], system: str) -> None:
     """Create package with blender bpy binaries as wheel."""
     for python_version in python:
-        _package(blender, python_version)
+        _package(blender, python_version, system)
 
 
-def _package(blender: Version, python_version: Version) -> None:
+def _package(blender: Version, python_version: Version, system: str) -> None:
     configure_logger(blender, python_version)
 
     environment = jinja2.Environment(
@@ -246,7 +253,7 @@ def _package(blender: Version, python_version: Version) -> None:
                 "setup",
                 "bdist_wheel",
                 "--plat-name",
-                "linux_x86_64",
+                system,
                 "--python-tag",
                 f"cp{py_tag}",
                 "--py-limited-api",
