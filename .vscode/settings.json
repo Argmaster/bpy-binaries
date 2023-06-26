@@ -18,5 +18,5 @@
     },
     "ruff.fixAll": true,
     "editor.formatOnSave": true,
-    "cSpell.words": ["localzone", "tzlocal", "workdir"]
+    "cSpell.words": ["localzone", "manylinux", "tzlocal", "workdir"]
 }

@@ -1,0 +1,27 @@
+from pathlib import Path
+
+from setuptools import find_namespace_packages, setup
+
+setup(
+    name="bpy",
+    version="{{ blender_version }}",
+    url="https://www.blender.org/",
+    author="Blender Foundation",
+    author_email="foundation@blender.org",
+    description="Blender as Python module binaries.",
+    long_description=(Path.cwd() / "README.md").read_text(),
+    long_description_content_type="text/markdown",
+    packages=find_namespace_packages(),
+    package_data={"bpy": [p.as_posix() for p in (Path.cwd() / "bpy").rglob("*.*")]},
+    include_package_data=True,
+    install_requires=[],
+    python_requires="=={{ python_version }}.*",
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: {{ python_version }}",
+    ],
+)

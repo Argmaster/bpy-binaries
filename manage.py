@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 """Convenience wrapper for the scripts.manage module."""
 
 import scripts.manage
